@@ -87,7 +87,7 @@ Str::Str(LPWSTR pwszSrc)
 
 Str::Str(LPWSTR pwszSrc, int cbLength)
 {
-	if (!pwszSrc)
+	if (pwszSrc == nullptr)
 	{
 		m_pwszStrBuf = nullptr;
 		m_cbSize = m_cbNullTerminatedSize = 0;
@@ -99,7 +99,7 @@ Str::Str(LPWSTR pwszSrc, int cbLength)
 
 	m_pwszStrBuf = new WCHAR[m_cbNullTerminatedSize];
 
-	if (!m_pwszStrBuf)
+	if (m_pwszStrBuf == nullptr)
 	{
 		m_cbSize = m_cbNullTerminatedSize = 0;
 		return;
